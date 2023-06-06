@@ -1,4 +1,6 @@
-data "aws_region" "current" {}
+data "aws_region" "eu-west-2" {
+    provider = aws.euwest2
+}
 
 resource "aws_securityhub_standards_subscription" "nist_benchmarks" {
   provider = aws.euwest2
