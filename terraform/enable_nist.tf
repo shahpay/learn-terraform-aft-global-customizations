@@ -82,10 +82,13 @@ data "aws_region" "eu-west-2" {
     provider = aws.euwest2
 }
 
-# resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-east-1"  {
-#   provider = aws.sts-root
-#   standards_arn = "arn:aws:securityhub:${data.aws_region.us-east-1.name}::standards/nist-800-53/v/5.0.0"
-# }
+data "aws_region" "us-east-1" {
+    provider = aws.euwest2
+}
+
+resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-east-1"  {
+  standards_arn = "arn:aws:securityhub:${data.aws_region.us-east-1.name}::standards/nist-800-53/v/5.0.0"
+}
 
 resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-east-2" {
   provider = aws.useast2
