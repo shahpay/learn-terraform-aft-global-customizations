@@ -58,21 +58,21 @@
 #     provider = aws.sts-root
 # }
 
-data "aws_region" "us-east-2" {
-    provider = aws.useast2
-}
+# data "aws_region" "us-east-2" {
+#     provider = aws.useast2
+# }
 
-data "aws_region" "us-west-2" {
-    provider = aws.uswest2
-}
+# data "aws_region" "us-west-2" {
+#     provider = aws.uswest2
+# }
 
-data "aws_region" "ca-central-1" {
-    provider = aws.cacentral1
-}
+# data "aws_region" "ca-central-1" {
+#     provider = aws.cacentral1
+# }
 
-data "aws_region" "eu-central-1" {
-    provider = aws.eucentral1
-}
+# data "aws_region" "eu-central-1" {
+#     provider = aws.eucentral1
+# }
 
 data "aws_region" "eu-west-1" {
     provider = aws.euwest1
@@ -82,32 +82,31 @@ data "aws_region" "eu-west-2" {
     provider = aws.euwest2
 }
 
-data "aws_region" "us-east-1" {
-}
+# data "aws_region" "us-east-1" { }
 
-resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-east-1"  {
-  standards_arn = "arn:aws:securityhub:${data.aws_region.us-east-1.name}::standards/nist-800-53/v/5.0.0"
-}
+# resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-east-1"  {
+#   standards_arn = "arn:aws:securityhub:${data.aws_region.us-east-1.name}::standards/nist-800-53/v/5.0.0"
+# }
 
-resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-east-2" {
-  provider = aws.useast2
-  standards_arn = "arn:aws:securityhub:${data.aws_region.us-east-2.name}::standards/nist-800-53/v/5.0.0"
-}
+# resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-east-2" {
+#   provider = aws.useast2
+#   standards_arn = "arn:aws:securityhub:${data.aws_region.us-east-2.name}::standards/nist-800-53/v/5.0.0"
+# }
 
-resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-west-2" {
-  provider = aws.uswest2
-  standards_arn = "arn:aws:securityhub:${data.aws_region.us-west-2.name}::standards/nist-800-53/v/5.0.0"
-}
+# resource "aws_securityhub_standards_subscription" "nist_benchmarks-us-west-2" {
+#   provider = aws.uswest2
+#   standards_arn = "arn:aws:securityhub:${data.aws_region.us-west-2.name}::standards/nist-800-53/v/5.0.0"
+# }
 
-resource "aws_securityhub_standards_subscription" "nist_benchmarks-ca-central-1"{
-  provider = aws.cacentral1
-  standards_arn = "arn:aws:securityhub:${data.aws_region.ca-central-1.name}::standards/nist-800-53/v/5.0.0"
-}
+# resource "aws_securityhub_standards_subscription" "nist_benchmarks-ca-central-1"{
+#   provider = aws.cacentral1
+#   standards_arn = "arn:aws:securityhub:${data.aws_region.ca-central-1.name}::standards/nist-800-53/v/5.0.0"
+# }
 
-resource "aws_securityhub_standards_subscription" "nist_benchmarks-eu-central-1" {
-  provider = aws.eucentral1
-  standards_arn = "arn:aws:securityhub:${data.aws_region.eu-central-1.name}::standards/nist-800-53/v/5.0.0"
-}
+# resource "aws_securityhub_standards_subscription" "nist_benchmarks-eu-central-1" {
+#   provider = aws.eucentral1
+#   standards_arn = "arn:aws:securityhub:${data.aws_region.eu-central-1.name}::standards/nist-800-53/v/5.0.0"
+# }
 
 resource "aws_securityhub_standards_subscription" "nist_benchmarks-eu-west-1" {
   provider = aws.euwest1
