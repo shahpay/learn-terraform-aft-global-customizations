@@ -7,5 +7,5 @@ module securityhub {
     aws.euwest1 = aws.euwest1
     aws.euwest2 = aws.euwest2
 }
-  source = "/Users/shahpay/Desktop/Flutter/learn-aft/payal-aft/learn-terraform-aft-account-customizations/dtpl-dev/terraform/modules/securityhub/modules/securityhub"
+  source = "git@github.com:shahpay/learn-terraform-aft-account-customizations.git/dtpl-dev/terraform/modules/securityhub"
 }
