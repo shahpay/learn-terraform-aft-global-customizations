@@ -22,7 +22,7 @@ echo "Rescan github.com public SSH key"
 echo "Ref: https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/"
 echo "End of Removing AWS Profile"
 echo "Begin of getting parameter"
-param=${aws ssm get-parameter --name /aft/account-request/custom-fields/budget --with-decryption --query 'Parameter.Value'}
+param=${aws ssm get-parameter --name "/aft/account-request/custom-fields/budget"}
 echo $param
 
 export TF_VAR_PARAM=$param
