@@ -1,4 +1,4 @@
-variable TF_VAR_PARAM {
+variable PARAM {
   type=string
 }
 
