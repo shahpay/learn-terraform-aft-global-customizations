@@ -1,4 +1,4 @@
-module securityhub {
+module securityhub_all {
   providers = {
     aws.useast2 = aws.useast2
     aws.uswest2 = aws.uswest2
