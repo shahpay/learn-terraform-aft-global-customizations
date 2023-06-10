@@ -22,15 +22,15 @@ echo "Rescan github.com public SSH key"
 echo "Ref: https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/"
 echo "End of Removing AWS Profile"
 echo "Begin of getting parameter"
-param=`aws ssm get-parameter --name "/aft/account-request/custom-fields/budget"`
+param=`aws ssm get-parameter --name "/aft/account-request/custom-fields/budget" --query 'Parameter.Value'`
 echo $param
 
 export TF_VAR_PARAM=$param
-echo "End of getting parameter"
-echo "Begin of changing file permissions"
-chmod 400 /tmp/github_dtpl_terraform_modules_key
-echo "End of changing file permissions"
-echo "export GIT_SSH_COMMAND=\"ssh -o IdentitiesOnly=yes -i /tmp/github_dtpl_terraform_modules_key\"" >> $DEFAULT_PATH/aft-venv/bin/activate
-echo "Returning target profile"
-export AWS_PROFILE=$AWS_PROFILE_ORIG
+# echo "End of getting parameter"
+# echo "Begin of changing file permissions"
+# chmod 400 /tmp/github_dtpl_terraform_modules_key
+# echo "End of changing file permissions"
+# echo "export GIT_SSH_COMMAND=\"ssh -o IdentitiesOnly=yes -i /tmp/github_dtpl_terraform_modules_key\"" >> $DEFAULT_PATH/aft-venv/bin/activate
+# echo "Returning target profile"
+# export AWS_PROFILE=$AWS_PROFILE_ORIG
 
