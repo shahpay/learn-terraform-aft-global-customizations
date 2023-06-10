@@ -20,7 +20,7 @@ variable disabled_nis_control_all_region {
     nis_efs_2              =   "EFS.2"
     nis_elasticbeanstalk_1 =   "ElasticBeanstalk.1"
     nis_elb_10             =   "ELB.10"
-    nis_elb_12             =   "LB.12"
+    nis_elb_12             =   "ELB.12"
     nis_elb_13             =   "ELB.13"
     nis_elb_14             =   "ELB.14"
     nis_elb_7              =   "ELB.7"
