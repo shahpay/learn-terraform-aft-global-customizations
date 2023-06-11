@@ -1,9 +1,9 @@
 variable disabled_nis_control_all_region {
   type = map(string)
   default = {
-    nis_apigateway_4       =   "APIGateway.3"
-    nis_apigateway_5       =   "APIGateway.4"
-    nis_apigateway_5       =   "APIGateway.9"
+    nis_apigateway_3       =   "APIGateway.3"
+    nis_apigateway_4       =   "APIGateway.4"
+    nis_apigateway_9       =   "APIGateway.9"
     nis_autoscaling_1      =   "AutoScaling.1"
     nis_autoscaling_2      =   "AutoScaling.2"
     nis_autoscaling_4      =   "AutoScaling.4"
