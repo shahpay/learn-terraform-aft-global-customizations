@@ -11,7 +11,7 @@ terraform {
 
 locals  {
  nis_version = "5.0.0"
- disabled_reason = "Not needed for this usecase"
+ disabled_reason = "Not applicable for the environment"
 }
 
 data "aws_region" "us-east-1" {}
