@@ -24,7 +24,7 @@ echo "End of Removing AWS Profile"
 echo "Begin of getting parameter"
 param=`aws ssm get-parameter --name "/aft/account-request/custom-fields/budget" --query 'Parameter.Value'`
 echo $param
-echo "export TF_VAR_PARAM=\"$param"\ >> .venv/bin/activate
+echo "export TF_VAR_PARAM=\"$param"\ >> $DEFAULT_PATH/.venv/bin/activate
 export TF_VAR_PARAM=$param
 
 # echo $TF_VAR_PARAM >> $DEFAULT_PATH/aft-venv/bin/activate
