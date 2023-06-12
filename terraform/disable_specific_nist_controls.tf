@@ -46,7 +46,7 @@ module securityhub_excluding_production_accounts{
     aws.euwest1 = aws.euwest1
     aws.euwest2 = aws.euwest2
 }
-  count = var.environment != prod ? 1 : 0
+  count = var.environment != "prod" ? 1 : 0
   source = "./modules/securityhub"
   disabled_nis_control_all_region = var.disabled_nis_control_all_account_excluding_prod
   depends_on = [ aws_securityhub_standards_subscription.nist_benchmarks-eu-west-1,
