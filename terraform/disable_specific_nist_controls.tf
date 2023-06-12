@@ -1,5 +1,5 @@
-variable PARAM {
-  type=string
+variable "PARAM" {
+  type = string
 }
 
 module securityhub_all {
