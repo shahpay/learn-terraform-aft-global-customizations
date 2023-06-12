@@ -1,3 +1,7 @@
+variable PARAM {
+  type=string
+}
+
 module securityhub_all {
   providers = {
     aws.useast2 = aws.useast2

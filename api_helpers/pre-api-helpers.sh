@@ -25,7 +25,8 @@ echo "Begin of getting parameter"
 param=`aws ssm get-parameter --name "/aft/account-request/custom-fields/budget" --query 'Parameter.Value'`
 echo $param
 
-export TF_VAR_PARAM=$param
+TF_VAR_PARAM=$param
+export TF_VAR_PARAM >> $DEFAULT_PATH/aft-venv/bin/activate
 # echo "End of getting parameter"
 # echo "Begin of changing file permissions"
 # chmod 400 /tmp/github_dtpl_terraform_modules_key
