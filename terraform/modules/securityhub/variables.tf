@@ -55,3 +55,7 @@ variable disabled_nis_control_all_region {
 }
 }
 
+variable "PARAM" {
+  type=string
+}
+
