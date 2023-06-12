@@ -1,6 +1,6 @@
-variable "environment" {
-  type=string
-}
+# variable "environment" {
+#   type=string
+# }
 
 variable disabled_nis_control_all_region {
   type = map(string)
