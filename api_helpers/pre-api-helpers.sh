@@ -25,6 +25,7 @@ echo "Begin of getting parameter"
 
 environment=`aws ssm get-parameter --name "/aft/account-request/custom-fields/environment" --query 'Parameter.Value'`
 echo $environment
+environment="prod"
 if [ "$environment" != "prod" ]; then
 	environment="non-prod"
 fi
