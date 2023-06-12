@@ -23,9 +23,9 @@ echo "Ref: https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/"
 echo "End of Removing AWS Profile"
 echo "Begin of getting parameter"
 
-environment=`aws ssm get-parameter --name "/aft/account-request/custom-fields/environment" --query 'Parameter.Value'`
-echo $environment
-$environment=`sed -e 's/^"//' -e 's/"$//' <<<"$environment"`  
+environment=`aws ssm get-parameter --name "/aft/account-request/custom-fields/environment" --query 'Parameter.Value' --output text`
+# echo $environment
+# $environment=`sed -e 's/^"//' -e 's/"$//' <<<"$environment"`  
 # environment="prod"
 echo $environment
 if [ "$environment" != "prod" ]; then
