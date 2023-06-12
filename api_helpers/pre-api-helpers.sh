@@ -22,9 +22,9 @@ echo "Rescan github.com public SSH key"
 echo "Ref: https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/"
 echo "End of Removing AWS Profile"
 echo "Begin of getting parameter"
-param=`aws ssm get-parameter --name "/aft/account-request/custom-fields/budget" --query 'Parameter.Value'`
-echo $param
-echo "export TF_VAR_PARAM=\"$param"\" >> $DEFAULT_PATH/aft-venv/bin/activate
+environment=`aws ssm get-parameter --name "/aft/account-request/custom-fields/env" --query 'Parameter.Value'`
+echo $environment
+echo "export TF_VAR_environment=\"$environment"\" >> $DEFAULT_PATH/aft-venv/bin/activate
 export TF_VAR_PARAM=$param
 
 # echo $TF_VAR_PARAM >> $DEFAULT_PATH/aft-venv/bin/activate
