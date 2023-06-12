@@ -1,7 +1,3 @@
-# variable "environment" {
-#   type=string
-# }
-
 variable disabled_nis_control_all_region {
   type = map(string)
   default = {
@@ -57,6 +53,15 @@ variable disabled_nis_control_all_region {
     nis_s3_15              =   "S3.15"
     nis_s3_7               =   "S3.7"
 }
+}
+
+variable disabled_control_all_exclude_one_region {
+  type = map(string)
+  default = {
+   nis_iam_1 = "IAM.1"
+   nis_iam_2 = "IAM.2"
+  }
+
 }
 
 # variable enabled_nis_control_prod{
