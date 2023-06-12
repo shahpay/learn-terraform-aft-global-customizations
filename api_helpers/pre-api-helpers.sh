@@ -27,7 +27,7 @@ environment=`aws ssm get-parameter --name "/aft/account-request/custom-fields/en
 echo $environment
 if [ $environment != "prod" ]
 then
-	environment = "non-prod"
+	environment="non-prod"
 fi
 echo "After the if"
 echo $environment
