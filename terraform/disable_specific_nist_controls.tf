@@ -27,7 +27,6 @@ module securityhub_all {
     aws.euwest2 = aws.euwest2
 }
   source = "./modules/securityhub"
-  environment = var.environment
   depends_on = [ aws_securityhub_standards_subscription.nist_benchmarks-eu-west-1,
   aws_securityhub_standards_subscription.nist_benchmarks-eu-west-2,
   aws_securityhub_standards_subscription.nist_benchmarks-us-east-1,
