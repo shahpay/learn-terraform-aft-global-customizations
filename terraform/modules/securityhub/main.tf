@@ -16,7 +16,7 @@ locals  {
 
 
 resource "aws_securityhub_standards_control" "evaluate_controls_useast1" {
-   for_each = var.disabled_nis_control_all_region
+   for_each = merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control)
    control_status = "DISABLED"
    disabled_reason = local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.us-east-1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
@@ -25,7 +25,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls_useast1" {
 
 resource "aws_securityhub_standards_control" "evaluate_controls_useast2" {
    provider = aws.useast2
-   for_each = var.disabled_nis_control_all_region
+   for_each = merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control)
    control_status = "DISABLED"
    disabled_reason  = local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.us-east-2.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
@@ -33,7 +33,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls_useast2" {
 
 resource "aws_securityhub_standards_control" "evaluate_controls_uswest2" {
    provider = aws.uswest2
-   for_each = var.disabled_nis_control_all_region
+   for_each = merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control)
    control_status = "DISABLED"
    disabled_reason  = local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.us-west-2.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
@@ -41,7 +41,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls_uswest2" {
 
 resource "aws_securityhub_standards_control" "evaluate_controls_cacentral1" {
    provider = aws.cacentral1
-   for_each = var.disabled_nis_control_all_region
+   for_each = merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control)
    control_status = "DISABLED"
    disabled_reason  = local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.ca-central-1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
@@ -49,7 +49,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls_cacentral1" {
 
 resource "aws_securityhub_standards_control" "evaluate_controls_eucentral1" {
    provider = aws.eucentral1
-   for_each = var.disabled_nis_control_all_region
+   for_each = merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control)
    control_status = "DISABLED"
    disabled_reason  = local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.eu-central-1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
@@ -65,7 +65,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls_euwest1" {
 
 resource "aws_securityhub_standards_control" "evaluate_controls_euwest2" {
    provider = aws.euwest2
-   for_each = merge(var.disabled_nis_control_all_region, var.disabled_control_all_exclude_one_region)
+   for_each = merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control)
    control_status =  "DISABLED"
    disabled_reason  = local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.eu-west-2.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"

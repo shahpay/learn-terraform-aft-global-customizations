@@ -1,3 +1,4 @@
+# List of NIS Controls to be disabled globally
 variable disabled_nis_control_all_region {
   type = map(string)
   default = {
@@ -55,14 +56,39 @@ variable disabled_nis_control_all_region {
 }
 }
 
-variable disabled_control_all_exclude_one_region {
+
+# Disable this global controlS in all region except eu-west-1
+# Global controls would be based on global resurce i.e. IAM
+variable "disabled_global_nis_control" {
   type = map(string)
   default = {
-   nis_iam_1 = "IAM.1"
-   nis_iam_2 = "IAM.2"
-  }
-
+  nis_iam_1               =   "IAM.1"
+  nis_iam_2               =   "IAM.2"
+  nis_iam_3               =   "IAM.3"
+  nis_iam_4               =   "IAM.4"
+  nis_iam_5               =   "IAM.5"
+  nis_iam_6               =   "IAM.6"
+  nis_iam_7               =   "IAM.7"
+  nis_iam_8               =   "IAM.8"
+  nis_iam_9               =   "IAM.9"
+  nis_iam_10              =   "IAM.10"
+  nis_iam_11              =   "IAM.11"
+  nis_iam_12              =   "IAM.12"
+  nis_iam_13              =   "IAM.13"
+  nis_iam_14              =   "IAM.14"
+  nis_iam_15              =   "IAM.15"
+  nis_iam_16              =   "IAM.16"
+  nis_iam_17              =   "IAM.17"
+  nis_iam_18              =   "IAM.18"
+  nis_iam_19              =   "IAM.19"
+  nis_iam_20              =   "IAM.20"
+  nis_iam_21              =   "IAM.21"
+  nis_iam_22              =   "IAM.22"
+  nis_kms_1               =   "KMS.1"
+  nis_kms_2               =   "KMS.2"
 }
+}
+
 
 # variable enabled_nis_control_prod{
 #   type = map(string)
