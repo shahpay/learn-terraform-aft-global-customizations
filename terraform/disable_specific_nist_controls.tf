@@ -6,10 +6,6 @@ variable "environment" {
 variable "target_account" {
   type = string
 }
-data "aws_organizations_resource_tags" "account" {
-  resource_id = var.target_account
-}
-
 
 variable "disabled_nis_control_all_account_excluding_prod" {
   type = map(string)
