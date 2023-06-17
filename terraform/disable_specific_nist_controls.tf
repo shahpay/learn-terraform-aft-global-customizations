@@ -42,7 +42,9 @@ module securityhub_all {
   aws_securityhub_standards_subscription.nist_benchmarks-us-west-2,
   aws_securityhub_standards_subscription.nist_benchmarks-us-east-2,
   aws_securityhub_standards_subscription.nist_benchmarks-ca-central-1,
-  aws_securityhub_standards_subscription.nist_benchmarks-eu-central-1
+  aws_securityhub_standards_subscription.nist_benchmarks-eu-central-1,
+  aws_securityhub_standards_subscription.nist_benchmarks-eu-west-3
+  
 ]
 }
 
@@ -66,7 +68,8 @@ module securityhub_excluding_production_accounts{
   aws_securityhub_standards_subscription.nist_benchmarks-us-west-2,
   aws_securityhub_standards_subscription.nist_benchmarks-us-east-2,
   aws_securityhub_standards_subscription.nist_benchmarks-ca-central-1,
-  aws_securityhub_standards_subscription.nist_benchmarks-eu-central-1
+  aws_securityhub_standards_subscription.nist_benchmarks-eu-central-1,
+  aws_securityhub_standards_subscription.nist_benchmarks-eu-west-3
 ]
 }
 
