@@ -24,4 +24,9 @@ data "aws_region" "eu-west-2" {
   provider = aws.euwest2
 }
 
+data "aws_region" "eu-west-3" {
+  provider = aws.euwest3
+}
+
+
 data "aws_caller_identity" "current_account" {}
