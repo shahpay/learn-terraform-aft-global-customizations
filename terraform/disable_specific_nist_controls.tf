@@ -33,6 +33,7 @@ module securityhub_all {
     aws.eucentral1 = aws.eucentral1
     aws.euwest1 = aws.euwest1
     aws.euwest2 = aws.euwest2
+    aws.euwest3 = aws.euwest3
 }
   source = "./modules/securityhub"
   depends_on = [ aws_securityhub_standards_subscription.nist_benchmarks-eu-west-1,
@@ -53,6 +54,7 @@ module securityhub_excluding_production_accounts{
     aws.eucentral1 = aws.eucentral1
     aws.euwest1 = aws.euwest1
     aws.euwest2 = aws.euwest2
+    aws.euwest3 = aws.euwest3
 }
   count = var.environment != "prod" ? 1 : 0
   source = "./modules/securityhub"
