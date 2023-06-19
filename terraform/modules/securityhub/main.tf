@@ -73,7 +73,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls_euwest2" {
 
 resource "aws_securityhub_standards_control" "evaluate_controls_euwest3" {
    provider = aws.euwest3
-   for_each = merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control)
+   for_each = {for k, v in merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control) : k => v if k != nis_cloudformation_1}
    control_status =  "DISABLED"
    disabled_reason  = local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.eu-west-3.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
