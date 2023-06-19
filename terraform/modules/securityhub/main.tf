@@ -12,6 +12,7 @@ terraform {
 locals  {
  nis_version = "5.0.0"
  disabled_reason = "Not applicable for the environment"
+ excluded_key = "nis_cloudformation_1"
 }
 
 
@@ -75,7 +76,7 @@ resource "aws_securityhub_standards_control" "evaluate_controls_euwest3" {
    provider = aws.euwest3
    for_each = {
    for k, v in merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control) : k => v 
-   if k != "nis_cloudformation_1"
+   if k != local.excluded_key
    }
    control_status =  "DISABLED"
    disabled_reason  = local.disabled_reason
