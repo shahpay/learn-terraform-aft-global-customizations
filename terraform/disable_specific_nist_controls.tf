@@ -3,6 +3,11 @@ variable "environment" {
   default = "Nonprod"
 }
 
+variable "type" {
+  type = string
+  default = "Noncore"
+}
+
 #Disable this controls in all account except production account
 variable "disabled_nis_control_all_account_excluding_prod" {
   type = map(string)
@@ -18,7 +23,9 @@ variable "disabled_nis_control_all_account_excluding_prod" {
 }
 }
 
-variable "disabled_nis_control_all_account_excluding_core" {
+# Disable this global control in all accounts except Core Account.  In Core Account, disable this control in all region except eu-west-1
+# Global controls would be based on global resurce i.e. IAM
+variable "disabled_nis_control_all_account_excluding_core_aggregrated_region" {
   type = map(string)
   default = {
   nis_iam_6    =     "IAM.6"
@@ -65,7 +72,7 @@ module securityhub_excluding_production_accounts{
     aws.euwest2 = aws.euwest2
     aws.euwest3 = aws.euwest3
 }
-  count = var.environment != "Prod"  ? 1 : 0
+  count = var.environment != "Prod" ? 1 : 0
   source = "./modules/securityhub"
   disabled_nis_control_all_region = var.disabled_nis_control_all_account_excluding_prod
   disabled_global_nis_control = var.disabled_global_nis_control
@@ -80,6 +87,7 @@ module securityhub_excluding_production_accounts{
 ]
 }
 
+
 module securityhub_excluding_core_accounts{
   providers = {
     aws.useast2 = aws.useast2
@@ -90,10 +98,10 @@ module securityhub_excluding_core_accounts{
     aws.euwest2 = aws.euwest2
     aws.euwest3 = aws.euwest3
 }
-  count = var.environment != "Core"  ? 1 : 0
+  # count = var.environment != "Core" 
   source = "./modules/securityhub"
-  disabled_nis_control_all_region = var.disabled_nis_control_all_account_excluding_core
-  disabled_global_nis_control = var.disabled_global_nis_control
+  disabled_nis_control_all_region = var.type != "Core" ? var.disabled_nis_control_all_account_excluding_core_aggregrated_region : var.disabled_global_nis_control
+  disabled_global_nis_control = var.type != "Core" ?  var.disabled_global_nis_control : var.disabled_nis_control_all_account_excluding_core_aggregrated_region
   depends_on = [ aws_securityhub_standards_subscription.nist_benchmarks-eu-west-1,
   aws_securityhub_standards_subscription.nist_benchmarks-eu-west-2,
   aws_securityhub_standards_subscription.nist_benchmarks-us-east-1,
@@ -104,4 +112,55 @@ module securityhub_excluding_core_accounts{
   aws_securityhub_standards_subscription.nist_benchmarks-eu-west-3
 ]
 }
+
+# module securityhub_excluding_core_accounts{
+#   providers = {
+#     aws.useast2 = aws.useast2
+#     aws.uswest2 = aws.uswest2
+#     aws.cacentral1 = aws.cacentral1
+#     aws.eucentral1 = aws.eucentral1
+#     aws.euwest1 = aws.euwest1
+#     aws.euwest2 = aws.euwest2
+#     aws.euwest3 = aws.euwest3
+# }
+#   count = var.environment != "Core" 
+#   source = "./modules/securityhub"
+#   disabled_nis_control_all_region = var.disabled_nis_control_all_account_excluding_core
+#   disabled_global_nis_control = var.disabled_global_nis_control
+#   depends_on = [ aws_securityhub_standards_subscription.nist_benchmarks-eu-west-1,
+#   aws_securityhub_standards_subscription.nist_benchmarks-eu-west-2,
+#   aws_securityhub_standards_subscription.nist_benchmarks-us-east-1,
+#   aws_securityhub_standards_subscription.nist_benchmarks-us-west-2,
+#   aws_securityhub_standards_subscription.nist_benchmarks-us-east-2,
+#   aws_securityhub_standards_subscription.nist_benchmarks-ca-central-1,
+#   aws_securityhub_standards_subscription.nist_benchmarks-eu-central-1,
+#   aws_securityhub_standards_subscription.nist_benchmarks-eu-west-3
+# ]
+# }
+
+# module securityhub_core_accounts_excluding_global_region{
+#   providers = {
+#     aws.useast2 = aws.useast2
+#     aws.uswest2 = aws.uswest2
+#     aws.cacentral1 = aws.cacentral1
+#     aws.eucentral1 = aws.eucentral1
+#     aws.euwest1 = aws.euwest1
+#     aws.euwest2 = aws.euwest2
+#     aws.euwest3 = aws.euwest3
+# }
+#   count = var.environment != "Core"  ? 1 : 0
+#   source = "./modules/securityhub"
+#   disabled_nis_control_all_region = 
+#   disabled_global_nis_control = var.disabled_nis_control_all_account_excluding_core_aggregrated_region
+#   depends_on = [ aws_securityhub_standards_subscription.nist_benchmarks-eu-west-1,
+#   aws_securityhub_standards_subscription.nist_benchmarks-eu-west-2,
+#   aws_securityhub_standards_subscription.nist_benchmarks-us-east-1,
+#   aws_securityhub_standards_subscription.nist_benchmarks-us-west-2,
+#   aws_securityhub_standards_subscription.nist_benchmarks-us-east-2,
+#   aws_securityhub_standards_subscription.nist_benchmarks-ca-central-1,
+#   aws_securityhub_standards_subscription.nist_benchmarks-eu-central-1,
+#   aws_securityhub_standards_subscription.nist_benchmarks-eu-west-3
+# ]
+# }
+
 

@@ -30,13 +30,15 @@ if [ "$environment" != "prod" ]; then
 	environment="non-prod"
 fi
 
-if [ "$environment" != "Core" ]; then
-  environment="non-prod"
+if [ "$type" != "Core" ]; then
+  type="Noncore"
 fi
 
 echo "After the if"
 echo $environment
+echo $type
 echo "export TF_VAR_environment=\"$environment"\" >> $DEFAULT_PATH/aft-venv/bin/activate
+echo "export TF_VAR_core=\"$type"\" >> $DEFAULT_PATH/aft-venv/bin/activate
 echo "export TF_VAR_target_account=\"$VENDED_ACCOUNT_ID"\" >> $DEFAULT_PATH/aft-venv/bin/activate
 export TF_VAR_PARAM=$param
 
