@@ -144,7 +144,7 @@ data "aws_caller_identity" "current_account" {}
 resource "aws_securityhub_standards_control" "ev" {
    control_status = "DISABLED"
    disabled_reason = "We dont need it"
-   standards_control_arn = "arn:aws:securityhub:eu-west-1:${data.aws_caller_identity.current_account.account_id}:control/standards/nist-800-53/v/5.0.0/EC2.2"
+   standards_control_arn = "arn:aws:securityhub:eu-west-1:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/5.0.0/EC2.2"
 }
 
 # resource "aws_securityhub_standards_control" "ec2_2" {
