@@ -138,6 +138,12 @@ module securityhub_core_accounts_excluding_global_region{
 ]
 }
 
+resource "aws_securityhub_standards_control" "ev" {
+   control_status = "DISABLED"
+   disabled_reason = local.disabled_reason
+   standards_control_arn = "arn:aws:securityhub:eu-west-1:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/EC2.2"
+}
+
 # module securityhub_core_accounts_excluding_global_region{
 #   providers = {
 #     aws.useast2 = aws.useast2
