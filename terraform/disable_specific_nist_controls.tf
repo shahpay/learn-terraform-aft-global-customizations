@@ -98,7 +98,7 @@ module securityhub_excluding_core_accounts{
     aws.euwest2 = aws.euwest2
     aws.euwest3 = aws.euwest3
 }
-  count = var.environment != "Core" ? 1 : 0
+  count = var.type != "Core" ? 1 : 0
   source = "./modules/securityhub"
   disabled_nis_control_all_region = var.disabled_nis_control_all_account_excluding_core_aggregrated_region 
   disabled_global_nis_control = var.disabled_global_nis_control
@@ -123,7 +123,7 @@ module securityhub_core_accounts_excluding_global_region{
     aws.euwest2 = aws.euwest2
     aws.euwest3 = aws.euwest3
 }
-  count = var.environment != "Core" ? 0 : 1
+  count = var.type != "Core" ? 0 : 1
   source = "./modules/securityhub"
   disabled_nis_control_all_region = var.disabled_global_nis_control
   disabled_global_nis_control = var.disabled_nis_control_all_account_excluding_core_aggregrated_region
