@@ -17,7 +17,7 @@ locals  {
 
 
 resource "aws_securityhub_standards_control" "evaluate_controls_useast1" {
-   for_each = merge(var.disabled_nis_control_all_region, var.disabled_global_nis_control)
+   for_each = var.disabled_nis_control_all_region
    control_status = "DISABLED"
    disabled_reason = local.disabled_reason
    standards_control_arn = "arn:aws:securityhub:${data.aws_region.us-east-1.name}:${data.aws_caller_identity.current_account.account_id}:control/nist-800-53/v/${local.nis_version}/${each.value}"
