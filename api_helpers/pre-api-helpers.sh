@@ -24,7 +24,7 @@ echo "End of Removing AWS Profile"
 echo "Begin of getting parameter"
 
 environment=`aws ssm get-parameter --name "/aft/account-request/custom-fields/environment" --query 'Parameter.Value' --output text`
-
+type=`aws ssm get-parameter --name "/aft/account-request/custom-fields/type" --query 'Parameter.Value' --output text`
 echo $environment
 if [ "$environment" != "prod" ]; then
 	environment="non-prod"
