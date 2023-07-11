@@ -1,6 +1,6 @@
 variable "environment" {
   type = string
-  default = "non-prod"
+  default = "Nonprod"
 }
 
 #Disable this controls in all account except production account
@@ -15,6 +15,13 @@ variable "disabled_nis_control_all_account_excluding_prod" {
   nis_rds_7    =     "RDS.7"
   nis_rds_8    =     "RDS.8"
   nis_rds_9    =     "RDS.9"
+}
+}
+
+variable "disabled_nis_control_all_account_excluding_core" {
+  type = map(string)
+  default = {
+  nis_iam_6    =     "IAM.6"
 }
 }
 
@@ -58,9 +65,34 @@ module securityhub_excluding_production_accounts{
     aws.euwest2 = aws.euwest2
     aws.euwest3 = aws.euwest3
 }
-  count = var.environment != "prod" ? 1 : 0
+  count = var.environment != "Prod"  ? 1 : 0
   source = "./modules/securityhub"
   disabled_nis_control_all_region = var.disabled_nis_control_all_account_excluding_prod
+  disabled_global_nis_control = var.disabled_global_nis_control
+  depends_on = [ aws_securityhub_standards_subscription.nist_benchmarks-eu-west-1,
+  aws_securityhub_standards_subscription.nist_benchmarks-eu-west-2,
+  aws_securityhub_standards_subscription.nist_benchmarks-us-east-1,
+  aws_securityhub_standards_subscription.nist_benchmarks-us-west-2,
+  aws_securityhub_standards_subscription.nist_benchmarks-us-east-2,
+  aws_securityhub_standards_subscription.nist_benchmarks-ca-central-1,
+  aws_securityhub_standards_subscription.nist_benchmarks-eu-central-1,
+  aws_securityhub_standards_subscription.nist_benchmarks-eu-west-3
+]
+}
+
+module securityhub_excluding_core_accounts{
+  providers = {
+    aws.useast2 = aws.useast2
+    aws.uswest2 = aws.uswest2
+    aws.cacentral1 = aws.cacentral1
+    aws.eucentral1 = aws.eucentral1
+    aws.euwest1 = aws.euwest1
+    aws.euwest2 = aws.euwest2
+    aws.euwest3 = aws.euwest3
+}
+  count = var.environment != "Core"  ? 1 : 0
+  source = "./modules/securityhub"
+  disabled_nis_control_all_region = var.disabled_nis_control_all_account_excluding_core
   disabled_global_nis_control = var.disabled_global_nis_control
   depends_on = [ aws_securityhub_standards_subscription.nist_benchmarks-eu-west-1,
   aws_securityhub_standards_subscription.nist_benchmarks-eu-west-2,

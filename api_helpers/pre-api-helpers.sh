@@ -29,6 +29,11 @@ echo $environment
 if [ "$environment" != "prod" ]; then
 	environment="non-prod"
 fi
+
+if [ "$environment" != "Core" ]; then
+  environment="non-prod"
+fi
+
 echo "After the if"
 echo $environment
 echo "export TF_VAR_environment=\"$environment"\" >> $DEFAULT_PATH/aft-venv/bin/activate
