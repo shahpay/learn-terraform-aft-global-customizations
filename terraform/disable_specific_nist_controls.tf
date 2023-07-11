@@ -28,7 +28,7 @@ variable "disabled_nis_control_all_account_excluding_prod" {
 variable "disabled_nis_control_all_account_excluding_core_aggregrated_region" {
   type = map(string)
   default = {
-  nis_iam_6    =     "IAM.6"
+  # nis_iam_6    =     "IAM.6"
 }
 }
 
@@ -123,7 +123,7 @@ module securityhub_core_accounts_excluding_global_region{
     aws.euwest2 = aws.euwest2
     aws.euwest3 = aws.euwest3
 }
-  count = var.type != "Core" ? 0 : 1
+  count = var.type != "Core" ? 1 : 0
   source = "./modules/securityhub"
   disabled_nis_control_all_region = var.disabled_global_nis_control
   disabled_global_nis_control = var.disabled_nis_control_all_account_excluding_core_aggregrated_region
