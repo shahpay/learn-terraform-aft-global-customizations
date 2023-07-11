@@ -28,7 +28,7 @@ variable "disabled_nis_control_all_account_excluding_prod" {
 variable "disabled_nis_control_all_account_excluding_core_aggregrated_region" {
   type = map(string)
   default = {
-  # nis_iam_6    =     "IAM.6"
+  nis_iam_6    =     "IAM.6"
 }
 }
 
@@ -138,7 +138,7 @@ module securityhub_core_accounts_excluding_global_region{
 ]
 }
 
-data "aws_caller_identity" "current_account" {}
+# data "aws_caller_identity" "current_account" {}
 
 
 # resource "aws_securityhub_standards_control" "ev" {
