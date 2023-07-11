@@ -20,6 +20,8 @@ variable "disabled_nis_control_all_account_excluding_prod" {
   nis_rds_7    =     "RDS.7"
   nis_rds_8    =     "RDS.8"
   nis_rds_9    =     "RDS.9"
+  # nis_ec2_6    =     "EC2.6"
+  # nis_rds_11   =     "RDS.11"
 }
 }
 
