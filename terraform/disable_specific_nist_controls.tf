@@ -140,7 +140,7 @@ module securityhub_core_accounts_excluding_global_region{
 ]
 }
 
-# data "aws_caller_identity" "current_account" {}
+data "aws_caller_identity" "current_account" {}
 
 
 # resource "aws_securityhub_standards_control" "ev" {
