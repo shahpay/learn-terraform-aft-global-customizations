@@ -12,6 +12,7 @@ variable "disabled_nis_control_all_region" {
     nis_autoscaling_6      = "AutoScaling.6"
     nis_autoscaling_9      = "AutoScaling.9"
     nis_cloudformation_1   = "CloudFormation.1"
+    nis_cloudtrail_1       = "CloudTrail.1"
     nis_dynamodb_1         = "DynamoDB.1"
     nis_dynamodb_2         = "DynamoDB.2"
     nis_ec2_17             = "EC2.17"

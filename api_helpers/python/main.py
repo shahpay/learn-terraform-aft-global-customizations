@@ -1,5 +1,4 @@
 import boto3
-import json
 from utils import (
     enabled_controls_list,
     enabled_prod_list,
@@ -10,7 +9,6 @@ from utils import (
     global_region
 )
 import os
-import sys
 
 environment = os.environ.get("TF_VAR_environment")
 type = os.environ.get("TF_VAR_type")
