@@ -3,6 +3,7 @@ import json
 from utils import (
     enabled_controls_list,
     enabled_prod_list,
+    enabled_core_list,
     standards_arn_prefix,
     standards_arn_suffix,
     valid_regions,
@@ -35,13 +36,10 @@ def disabled_controls():
                 )
                 print(applied_prod_response)
 
-
-            # if region == global_region:
-            #     applied_global_response = apply_enabled_controls_list(
-            #         sh_client, enabled_global_list, region
-            #     )
-
-
+            if type == "Core" and region == global_region:
+                applied_core_response = apply_enabled_controls_list(
+                   sh_client, enabled_core_list, region
+                )
     except Exception as e:
         print(e)
 

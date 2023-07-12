@@ -25,3 +25,6 @@ enabled_prod_list = {
     "nis_rds_11": "RDS.11"
 }
 
+enabled_core_list = {
+    "nis_iam_6": "IAM.6"
+}
