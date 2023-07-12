@@ -25,18 +25,3 @@ enabled_prod_list = {
     "nis_rds_11": "RDS.11"
 }
 
-# enabled_globals_list = {
-#     "nis_iam_1": "IAM.1",
-#     "nis_iam_2": "IAM.2",
-#     "nis_iam_3": "IAM.3",
-#     "nis_iam_4": "IAM.4",
-#     "nis_iam_5": "IAM.5",
-#     # "nis_iam_6": "IAM.6"
-#     "nis_iam_7": "IAM.7",
-#     "nis_iam_8": "IAM.8",
-#     "nis_iam_9": "IAM.9",
-#     "nis_iam_19": "IAM.19",
-#     "nis_iam_21": "IAM.21",
-#     "nis_kms_1": "KMS.1",
-#     "nis_kms_2": "KMS.2",
-# }

@@ -33,6 +33,7 @@ def disabled_controls():
                 sh_client, enabled_controls_list, region
             )
             print(applied_all_response)
+            print(environment)
 
             if environment == "Prod":
                 applied_prod_response = apply_enabled_controls_list(
