@@ -50,12 +50,12 @@ variable "disabled_nis_control_all_region" {
     nis_s3_14              = "S3.14"
     nis_s3_15              = "S3.15"
     nis_s3_7               = "S3.7"
-    nis_ec2_6              =     "EC2.6"
-    nis_rds_11             =     "RDS.11"
-    nis_lambda_3           = "Lambda.3"
-    nis_ec2_10 = "EC2.10"
-    nis_rds_16            =     "RDS.16"
-    nis_rds_17            =     "RDS.17"
+    # nis_ec2_6              =     "EC2.6"
+    # nis_rds_11             =     "RDS.11"
+    # nis_lambda_3           = "Lambda.3"
+    # nis_ec2_10 = "EC2.10"
+    # nis_rds_16            =     "RDS.16"
+    # nis_rds_17            =     "RDS.17"
   }
 }
 
