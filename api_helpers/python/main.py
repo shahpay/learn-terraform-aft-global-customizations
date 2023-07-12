@@ -12,9 +12,9 @@ import os
 import sys
 
 
-environment = sys.argv[0]
-type = sys.argv[1]
-account_id = sys.argv[2]
+environment = sys.argv[1]
+type = sys.argv[2]
+account_id = sys.argv[3]
 
 print(environment)
 print(type)
