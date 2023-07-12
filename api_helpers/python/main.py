@@ -3,11 +3,10 @@ import json
 from utils import (
     enabled_controls_list,
     enabled_prod_list,
-    enabled_globals_list,
     standards_arn_prefix,
     standards_arn_suffix,
     valid_regions,
-    global_region,
+    global_region
 )
 import os
 import sys
