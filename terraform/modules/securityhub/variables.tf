@@ -70,6 +70,7 @@ variable "disabled_global_nis_control" {
     nis_iam_3  = "IAM.3"
     nis_iam_4  = "IAM.4"
     nis_iam_5  = "IAM.5"
+    nis_iam_6  = "IAM.6"
     nis_iam_7  = "IAM.7"
     nis_iam_8  = "IAM.8"
     nis_iam_9  = "IAM.9"
