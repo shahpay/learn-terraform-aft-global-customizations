@@ -15,6 +15,8 @@ import sys
 environment = sys.argv[1]
 type = sys.argv[2]
 account_id = sys.argv[3]
+env = os.environ.get("TF_VAR_environment")
+print(env,"envvv")
 
 print(environment)
 print(type)

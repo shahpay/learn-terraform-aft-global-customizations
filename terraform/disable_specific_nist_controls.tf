@@ -30,7 +30,7 @@ variable "disabled_nis_control_all_account_excluding_prod" {
 variable "disabled_nis_control_all_account_excluding_core_aggregrated_region" {
   type = map(string)
   default = {
-  # nis_iam_6    =     "IAM.6"
+  nis_iam_6    =     "IAM.6"
 }
 }
 
