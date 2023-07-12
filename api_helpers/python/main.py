@@ -11,17 +11,9 @@ from utils import (
 import os
 import sys
 
-
-environment = sys.argv[1]
-type = sys.argv[2]
-account_id = sys.argv[3]
-env = os.environ.get("TF_VAR_environment")
-print(env,"envvv")
-
-print(environment)
-print(type)
-print(account_id)
-
+environment = os.environ.get("TF_VAR_environment")
+type = os.environ.get("TF_VAR_type")
+account_id = os.environ.get("TF_VAR_target_account")
 
 standards_arn = f"{standards_arn_prefix}::{account_id}:{standards_arn_suffix}"
 
